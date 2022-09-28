@@ -1,1 +1,1 @@
-# temporary-name
+# Solar Clicker
