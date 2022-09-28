@@ -1,5 +1,8 @@
 const User = require('./User');
+const Score = require('./Score');
 
-// TODO: ADD RELATIONSHIPS
+Score.belongsTo(User,{ 
+  foreignKey: 'user_id'
+});
 
-module.exports = { User };
+module.exports = { User, Score };
