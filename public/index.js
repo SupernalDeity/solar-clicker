@@ -30,5 +30,5 @@ console.log(currentScore);
 //increases the score ever second, 1000ms = 1s
 setInterval(scoreOverTime, 1000);
 
-clickerBtn.addEventListener('click', increaseScore);
+//clickerBtn.addEventListener('click', increaseScore);
 
