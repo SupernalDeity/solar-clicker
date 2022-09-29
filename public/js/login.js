@@ -12,9 +12,9 @@ const loginFormHandler = async (event) => {
     });
     
     if (response.ok) {
-     document.location.replace('/api/games');
+     document.location.replace('/api/game');
     } else {
-      alert('Failed to log in');
+      //message('Failed to log in');
     }
   }
 
@@ -27,7 +27,7 @@ const signupFormHandler = async (event) => {
   const password = document.querySelector('#sign-up-password').value.trim();
 
   if (username && email && password) {
-    const response = await fetch('/api/users/sign-up', {
+    const response = await fetch('/api/game', {
       method: 'POST',
       body: JSON.stringify({ username, email, password }),
       headers: { 'Content-Type': 'application/json' },
