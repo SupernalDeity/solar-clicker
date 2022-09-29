@@ -54,7 +54,7 @@ Planets.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'score',
+    modelName: 'planets',
   }
 );
 
