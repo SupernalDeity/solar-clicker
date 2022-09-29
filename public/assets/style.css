@@ -1,3 +1,28 @@
 .button{
-  border-radius: 4px;
+  display: flex;
+  height: 250px;
+  justify-content: center;
+  align-items: center;
+}
+
+.clicker {
+  display: flex;
+  height: 250px;
+  justify-content: center;
+  align-items: center;
+}
+
+.links{
+  color:aqua;
+  transition: all 1s ease;
+}
+
+.links:hover {
+  background-color: blueviolet;
+  color:beige;
+  font-size: 40px;
+}
+
+.top {
+  color:aqua;
 }
