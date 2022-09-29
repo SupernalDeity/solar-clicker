@@ -4,23 +4,51 @@
     <div class="col-3 ">
       <div class="flex vh-100 mb-3 text-white">
         <h2 class="text-center ">SHOP</h2>
-        <hr  size="8" >
-        <button class="rounded mercury col-12 my-2">Mercury</button>
-        <button class="rounded venus col-12 my-2">Venus</button>
-        <button class="rounded earth col-12 my-2">Earth</button>
-        <button class="rounded mars col-12 my-2">Mars</button>
-        <button class="rounded jupiter col-12 my-2">Jupiter</button>
-        <button class="rounded saturn col-12 my-2">Saturn</button>
-        <button class="rounded uranus col-12 my-2">Uranus</button>
-        <button class="rounded neptune col-12 my-2">Neptune</button>
-        <button class="rounded pluto col-12 my-2">Pluto</button>
+        <hr size="8">
+        <div class="row">
+          <button class="rounded mercury col-10 my-2">Mercury</button>
+          <div class="col-2 mercury-stars">15 Stars</div>
+        </div>
+        <div class="row">
+          <button class="rounded venus col-10 my-2">Venus</button>
+          <div class="col-2 venus-stars">200 Stars</div>
+        </div>
+        <div class="row">
+          <button class="rounded earth col-10 my-2">Earth</button>
+          <div class="col-2 earth-stars">900 Stars</div>
+        </div>
+        <div class="row">
+          <button class="rounded mars col-10 my-2">Mars</button>
+          <div class="col-2 mars-stars">2000 Stars</div>
+        </div>
+        <div class="row">
+          <button class="rounded jupiter col-10 my-2">Jupiter</button>
+          <div class="col-2 jupiter-stars">5000 Stars</div>
+        </div>
+        <div class="row">
+          <button class="rounded saturn col-10 my-2">Saturn</button>
+          <div class="col-2 saturn-stars">15000 Stars</div>
+        </div>
+        <div class="row">
+          <button class="rounded uranus col-10 my-2">Uranus</button>
+          <div class="col-2 uranus-stars">40000 Stars</div>
+        </div>
+        <div class="row">
+          <button class="rounded neptune col-10 my-2">Neptune</button>
+          <div class="col-2 neptune-stars">90000 Stars</div>
+        </div>
+        <div class="row">
+          <button class="rounded pluto col-10 my-2">Pluto</button>
+          <div class="col-2 pluto-stars">250000 Stars</div>
+        </div>
       </div>
     </div>
-    <div class="col-6  text-center">
-      <div class="flex vh-100 mb-3 button">
-        <h4 class="text-white text-center align-self-start">Points:</h4>
-        {{!-- <img class="my-4 align-self-center col-12" src="https://tse4.mm.bing.net/th?id=OIP.xVOxyHmMxYm3pfWo14GELwAAAA&pid=Api&P=0" alt="placeholder"> --}}
-        <button class="clicker rounded-circle col-12 text-dark">
+    <div class="col-6 text-center">
+      <h4 class="text-white text-center stars">Stars:</h4>
+      <div class="vh-100 row button flex mb-3">
+        {{!-- <img class="my-4 align-self-center col-12"
+          src="https://tse4.mm.bing.net/th?id=OIP.xVOxyHmMxYm3pfWo14GELwAAAA&pid=Api&P=0" alt="placeholder"> --}}
+        <button class="text-center clicker rounded-circle col-8 text-dark">
           Click Here</button>
       </div>
     </div>
@@ -34,10 +62,11 @@
     </div>
   </div>
   <style>
-    body{
+    body {
       background-image: url(https://images-assets.nasa.gov/image/PIA18906/PIA18906~medium.jpg);
     }
-    .clicker{
+
+    .clicker {
       background-image: url(https://images-assets.nasa.gov/image/PIA00123/PIA00123~small.jpg);
     }
   </style>
