@@ -5,3 +5,18 @@
 .clicker {
   height: 200px;
 }
+
+.links{
+  color:aqua;
+  transition: all 1s ease;
+}
+
+.links:hover {
+  background-color: blueviolet;
+  color:beige;
+  font-size: 40px;
+}
+
+.top {
+  color:aqua;
+}
