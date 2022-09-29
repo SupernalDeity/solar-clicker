@@ -1,7 +1,13 @@
 .button{
-  border-radius: 12px;
+  display: flex;
+  height: 250px;
+  justify-content: center;
+  align-items: center;
 }
 
 .clicker {
-  height: 200px;
+  display: flex;
+  height: 250px;
+  justify-content: center;
+  align-items: center;
 }
