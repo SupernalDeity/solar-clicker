@@ -1,3 +1,7 @@
 .button{
-  border-radius: 4px;
+  border-radius: 12px;
+}
+
+.clicker {
+  height: 200px;
 }
