@@ -49,16 +49,16 @@ increaseScore = (event) => {
   event.preventDefault();
   currentScore = currentScore + 1;
   scoreOverall = scoreOverall + 1;
-  starsEL.innerHTML =  `Stars: ${currentScore}`;
+  starsEL.innerHTML = `Stars: ${currentScore}`;
 };
 
 purchaseMercury = () => {
   if (currentScore >= mercuryCost) {
     currentScore = (currentScore - mercuryCost);
     mercury = (mercury + 1);
-    mercuryCost = (mercuryCost * 1.25);
+    mercuryCost = Math.round(mercuryCost * 1.25);
     mercuryStars.innerHTML = `${mercuryCost} Stars`;
-    starsEL.innerHTML =  `Stars: ${currentScore}`
+    starsEL.innerHTML = `Stars: ${currentScore}`
   };
 };
 
@@ -66,9 +66,9 @@ purchaseVenus = () => {
   if (currentScore >= venusCost) {
     currentScore = (currentScore - venusCost);
     venus = (venus + 1);
-    venusCost = (venusCost * 1.25);
+    venusCost = Math.round(venusCost * 1.25);
     venusStars.innerHTML = `${venusCost} Stars`;
-    starsEL.innerHTML =  `Stars: ${currentScore}`
+    starsEL.innerHTML = `Stars: ${currentScore}`
   };
 };
 
@@ -76,9 +76,9 @@ purchaseEarth = () => {
   if (currentScore > earthCost) {
     currentScore = (currentScore - earthCost);
     earth = (earth + 1);
-    earthCost = (earthCost * 1.25);
+    earthCost = Math.round(earthCost * 1.25);
     earthStars.innerHTML = `${earthCost} Stars`;
-    starsEL.innerHTML =  `Stars: ${currentScore}`
+    starsEL.innerHTML = `Stars: ${currentScore}`
   };
 };
 
@@ -86,9 +86,9 @@ purchaseMars = () => {
   if (currentScore > marsCost) {
     currentScore = (currentScore - marsCost);
     mars = (mars + 1);
-    marsCost = (marsCost * 1.25);
+    marsCost = Math.round(marsCost * 1.25);
     marsStars.innerHTML = `${marsCost} Stars`;
-    starsEL.innerHTML =  `Stars: ${currentScore}`
+    starsEL.innerHTML = `Stars: ${currentScore}`
   };
 };
 
@@ -96,9 +96,9 @@ purchaseJupiter = () => {
   if (currentScore >= jupiterCost) {
     currentScore = (currentScore - jupiterCost);
     jupiter = (jupiter + 1);
-    jupiterCost = (jupiterCost * 1.25);
+    jupiterCost = Math.round(jupiterCost * 1.25);
     jupiterStars.innerHTML = `${jupiterCost} Stars`;
-    starsEL.innerHTML =  `Stars: ${currentScore}`
+    starsEL.innerHTML = `Stars: ${currentScore}`
   };
 };
 
@@ -106,9 +106,9 @@ purchaseSaturn = () => {
   if (currentScore >= saturnCost) {
     currentScore = (currentScore - saturnCost);
     saturn = (saturn + 1);
-    saturnCost = (saturnCost * 1.25);
+    saturnCost = Math.round(saturnCost * 1.25);
     saturnStars.innerHTML = `${saturnCost} Stars`;
-    starsEL.innerHTML =  `Stars: ${currentScore}`
+    starsEL.innerHTML = `Stars: ${currentScore}`
   };
 };
 
@@ -116,9 +116,9 @@ purchaseUranus = () => {
   if (currentScore >= uranusCost) {
     currentScore = (currentScore - uranusCost);
     uranus = (uranus + 1);
-    uranusCost = (uranusCost * 1.15);
+    uranusCost = Math.round(uranusCost * 1.25);
     uranusStars.innerHTML = `${uranusCost} Stars`;
-    starsEL.innerHTML =  `Stars: ${currentScore}`
+    starsEL.innerHTML = `Stars: ${currentScore}`
   };
 };
 
@@ -126,9 +126,9 @@ purchaseNeptune = () => {
   if (currentScore >= neptuneCost) {
     currentScore = (currentScore - neptuneCost);
     neptune = (neptune + 1);
-    neptuneCost = (neptuneCost * 1.25);
+    neptuneCost = Math.round(neptuneCost * 1.25);
     neptuneStars.innerHTML = `${neptuneCost} Stars`;
-    starsEL.innerHTML =  `Stars: ${currentScore}`
+    starsEL.innerHTML = `Stars: ${currentScore}`
   };
 };
 
@@ -136,9 +136,9 @@ purchasePluto = () => {
   if (currentScore >= plutoCost) {
     currentScore = (currentScore - plutoCost);
     pluto = (pluto + 1);
-    plutoCost = (plutoCost * 1.25);
+    plutoCost = Math.round(plutoCost * 1.25);
     plutoStars.innerHTML = `${plutoCost} Stars`;
-    starsEL.innerHTML =  `Stars: ${currentScore}`
+    starsEL.innerHTML = `Stars: ${currentScore}`
   };
 };
 
@@ -148,7 +148,7 @@ scoreOverTime = () => {
   starsEL.innerHTML = `Stars: ${currentScore}`;
 };
 
-//increases the score ever second, 1000ms = 1s
+//increases the score every second, 1000ms = 1s
 setInterval(scoreOverTime, 1000);
 
 clickerBtn.addEventListener('click', increaseScore);
