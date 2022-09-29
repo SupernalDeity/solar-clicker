@@ -1,8 +1,10 @@
 const router = require('express').Router();
 const userRoutes = require('./userRoutes');
-const scoresRoutes = require('../scoreRoutes');
+const scoresRoutes = require('./scoreRoutes');
+const gameRoutes = require('./gameRoutes');
 
 router.use('/users', userRoutes);
-router.use('/highscores', scoresRoutes);
+router.use('/scores', scoresRoutes);
+router.use('/game', gameRoutes);
 
 module.exports = router;
