@@ -13,19 +13,6 @@ const uranusStars = document.querySelector('.uranus-stars');
 const neptuneStars = document.querySelector('.neptune-stars');
 const plutoStars = document.querySelector('.pluto-stars');
 
-let currentScore = 0;
-let scoreOverall = 0;
-
-let mercuryCost = 15;
-let venusCost = 200;
-let earthCost = 900;
-let marsCost = 2000;
-let jupiterCost = 5000;
-let saturnCost = 15000;
-let uranusCost = 40000;
-let neptuneCost = 90000;
-let plutoCost = 250000;
-
 const increaseScore = async () => {
   const response = await fetch(`http://localhost:3001/api/game/1/score`, {
     method: 'PUT',
@@ -57,14 +44,22 @@ const purchasePlanet = async (event) => {
 };
 
 
-// scoreOverTime = () => {
-  //   currentScore = currentScore + ((mercury * 2) + (venus * 30) + (earth * 90) + (mars * 240) + (jupiter * 500) + (saturn * 1200) + (uranus * 3000) + (neptune * 7000) + (pluto * 18000));
-  //   scoreOverall = scoreOverall + ((mercury * 3) + (venus * 30) + (earth * 90) + (mars * 240) + (jupiter * 500) + (saturn * 1200) + (uranus * 3000) + (neptune * 7000) + (pluto * 18000));
+scoreOverTime = async () => {
+  const response = await fetch(`http://localhost:3001/api/game/1/universe`, {
+    method: 'GET',
+  });
+  const data = await response.json();
+  console.log(data);
+
+  // currentScore = data.score.stars + ((data.universe.mercury * 2) + (data.universe.venus * 30) + (data.universe.earth * 90) + (data.universe.mars * 240) + (data.universe.jupiter * 500) + (data.universe.saturn * 1200) + (data.universe.uranus * 3000) + (data.universe.neptune * 7000) + (data.universe.pluto * 18000));
+
+  // scoreOverall = data.score.accumulation + ((data.universe.mercury * 2) + (data.universe.venus * 30) + (data.universe.earth * 90) + (data.universe.mars * 240) + (data.universe.jupiter * 500) + (data.universe.saturn * 1200) + (data.universe.uranus * 3000) + (data.universe.neptune * 7000) + (data.universe.pluto * 18000));
+
   //   starsEL.innerHTML = `Stars: ${currentScore}`;
-  // };
+  };
   
   // // increases the score every second, 1000ms = 1s
-  // setInterval(scoreOverTime, 1000);
+  setInterval(scoreOverTime, 1000);
   
 universeEl.addEventListener('click', purchasePlanet);
 clickerBtn.addEventListener('click', increaseScore);
