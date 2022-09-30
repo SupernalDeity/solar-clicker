@@ -59,7 +59,7 @@ scoreOverTime = async () => {
   };
   
   // // increases the score every second, 1000ms = 1s
-  setInterval(scoreOverTime, 1000);
+  // setInterval(scoreOverTime, 1000);
   
 universeEl.addEventListener('click', purchasePlanet);
 clickerBtn.addEventListener('click', increaseScore);
