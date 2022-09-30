@@ -26,10 +26,14 @@ let uranusCost = 40000;
 let neptuneCost = 90000;
 let plutoCost = 250000;
 
-const increaseScore = async (event) => {
-  currentScore = currentScore + 1;
-  scoreOverall = scoreOverall + 1;
-  starsEL.innerHTML = `Stars: ${currentScore}`;
+const increaseScore = async () => {
+  const response = await fetch(`http://localhost:3001/api/game/1/score`, {
+    method: 'PUT',
+  });
+  const data = await response.json();
+  console.log(data);
+
+  starsEL.innerHTML = `Stars: ${data.stars}`;
 };
 
 const purchasePlanet = async (event) => {
@@ -37,7 +41,7 @@ const purchasePlanet = async (event) => {
     const name = event.target.dataset.name;
     const amount = event.target.dataset.amount;
     
-    const response = await fetch(`http://localhost:3001/api/users/1/universe/${name}/add/${amount}`, {
+    const response = await fetch(`http://localhost:3001/api/game/1/universe/${name}/add/${amount}`, {
       method: 'PUT',
     });
     const data = await response.json();
