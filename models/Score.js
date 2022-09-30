@@ -13,14 +13,17 @@ Score.init(
     },
     stars: {
       type: DataTypes.INTEGER,
+      defaultValue: 0,
       allowNull: false,
     },
     accumulation: {
       type: DataTypes.INTEGER,
+      defaultValue: 0,
       allowNull: false,
     },
     clicks: {
       type: DataTypes.INTEGER,
+      defaultValue: 0,
       allowNull: false,
     },
     user_id: {

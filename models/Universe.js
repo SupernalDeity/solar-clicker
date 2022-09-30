@@ -1,45 +1,45 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Planets extends Model { }
+class Universe extends Model { }
 
-Planets.init(
+Universe.init(
   {
     mercury: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      defaultValue: 0,
     },
     venus: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      defaultValue: 0,
     },
     earth: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      defaultValue: 0,
     },
     mars: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      defaultValue: 0,
     },
     jupiter: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      defaultValue: 0,
     },
     saturn: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      defaultValue: 0,
     },
     uranus: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      defaultValue: 0,
     },
     neptune: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      defaultValue: 0,
     },
     pluto: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      defaultValue: 0,
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -54,10 +54,10 @@ Planets.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'planets',
+    modelName: 'universe',
   }
 );
 
-module.exports = Planets;
+module.exports = Universe;
 
 
