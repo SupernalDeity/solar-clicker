@@ -14,7 +14,7 @@
 
 .links{
   color:magenta;
-  transition: all 1s ease-in-out;
+  transition: all 800ms ease-in-out;
 }
 
 .links:hover {
@@ -24,7 +24,7 @@
   border-radius: 9px;
   color:beige;
   font-size: 40px;
-  transition: 1s ease-in-out;
+  transition: all 800ms ease-in-out;
 }
 
 .top {
@@ -69,7 +69,7 @@
 }
 
 .qq {
-  background: -webkit-linear-gradient(purple, white);
+  background: -webkit-linear-gradient(magenta, white);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
