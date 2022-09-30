@@ -10,5 +10,12 @@ function userJoin() {
   return user;
 };
 
+function formatMessage(username, text) {
+  return {
+    username, 
+    text,
+    time: moment().format('h:mm a')
+  };
+}
 
-module.exports = { userJoin }
+module.exports = { userJoin, formatMessage }
