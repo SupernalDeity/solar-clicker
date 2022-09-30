@@ -20,6 +20,7 @@
 .links{
   color:magenta;
   transition: all 800ms ease-in-out;
+  font-family: Garamond, "Times New Roman", serif;
 }
 
 .links:hover {
@@ -27,13 +28,14 @@
   border: 2px solid black;
   padding: 10px;
   border-radius: 9px;
-  color:beige;
+  color: rgb(8, 230, 250);
   font-size: 40px;
-  transition: all 800ms ease-in-out;
+  transition: all 650ms ease-in-out;
 }
 
 .top {
   color:magenta;
+  font-family: Garamond, "Times New Roman", serif;
 }
 
 .chat-form-container {
@@ -67,10 +69,12 @@
   border-image: repeating-linear-gradient(to bottom right, #33475b, #0033CC, #FF77CC, rgb(255, 122, 89)) 20;
   column-gap: 10px;
   margin: 15px;
+  font-family: Garamond, "Times New Roman", serif;
 }
 
 .hh {
   background-color: black;
+  border: 1px solid magenta;
 }
 
 .qq {
