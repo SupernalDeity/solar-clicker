@@ -13,18 +13,22 @@
 }
 
 .links{
-  color:aqua;
-  transition: all 1s ease;
+  color:magenta;
+  transition: all 1s ease-in-out;
 }
 
 .links:hover {
-  background-color: blueviolet;
+  background-image: linear-gradient(to right, purple , blue);
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 9px;
   color:beige;
   font-size: 40px;
+  transition: 1s ease-in-out;
 }
 
 .top {
-  color:aqua;
+  color:magenta;
 }
 
 .chat-form-container {
@@ -47,4 +51,25 @@
 .btn-primary:hover {
   opacity: 1;
   background-color: coral;
+}
+
+.dv {
+  background: rgba(100, 100, 100, 0.5);
+  height: 800px;
+  width: 400px;
+  border: 8px solid;
+  padding: 10px;
+  border-image: repeating-linear-gradient(to bottom right, #33475b, #0033CC, #FF77CC, rgb(255, 122, 89)) 20;
+  column-gap: 10px;
+  margin: 15px;
+}
+
+.hh {
+  background-color: black;
+}
+
+.qq {
+  background: -webkit-linear-gradient(purple, white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
