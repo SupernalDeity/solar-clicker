@@ -1,13 +1,21 @@
 const User = require('./User');
 const Score = require('./Score');
-const Planets = require('./Planets');
+const Universe = require('./Universe');
 
 Score.belongsTo(User,{ 
   foreignKey: 'user_id'
 });
 
-Planets.belongsTo(User, {
+Universe.belongsTo(User, {
   foreignKey: 'user_id'
-})
+});
 
-module.exports = { User, Score, Planets };
+User.hasOne(Universe, {
+  foreignKey: 'user_id'
+});
+
+User.hasOne(Score, {
+  foreignKey: 'user_id'
+});
+
+module.exports = { User, Score, Universe };
