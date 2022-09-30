@@ -15,6 +15,7 @@
 .links{
   color:magenta;
   transition: all 800ms ease-in-out;
+  font-family: Garamond, "Times New Roman", serif;
 }
 
 .links:hover {
@@ -29,6 +30,7 @@
 
 .top {
   color:magenta;
+  font-family: Garamond, "Times New Roman", serif;
 }
 
 .chat-form-container {
@@ -62,6 +64,7 @@
   border-image: repeating-linear-gradient(to bottom right, #33475b, #0033CC, #FF77CC, rgb(255, 122, 89)) 20;
   column-gap: 10px;
   margin: 15px;
+  font-family: Garamond, "Times New Roman", serif;
 }
 
 .hh {
