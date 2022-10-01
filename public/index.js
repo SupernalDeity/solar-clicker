@@ -3,22 +3,11 @@ const starsEL = document.querySelector('.stars');
 
 const universeEl = document.querySelector('#universe');
 
-const mercuryStars = document.querySelector('.mercury-stars');
-const venusStars = document.querySelector('.venus-stars');
-const earthStars = document.querySelector('.earth-stars');
-const marsStars = document.querySelector('.mars-stars');
-const jupiterStars= document.querySelector('.jupiter-stars');
-const saturnStars = document.querySelector('.saturn-stars');
-const uranusStars = document.querySelector('.uranus-stars');
-const neptuneStars = document.querySelector('.neptune-stars');
-const plutoStars = document.querySelector('.pluto-stars');
-
 const increaseScore = async () => {
   const response = await fetch(`http://localhost:3001/api/game/1/score`, {
     method: 'PUT',
   });
   const data = await response.json();
-  console.log(data);
 
   starsEL.innerHTML = `Stars: ${data.stars}`;
 };
@@ -27,22 +16,18 @@ const purchasePlanet = async (event) => {
   if (event.target.matches('button')) {
     const name = event.target.dataset.name;
     const amount = event.target.dataset.amount;
-    
+    const planetCost =  name + '_cost';
+    const storeStars = document.querySelector(`.${name}-stars`);
+
     const response = await fetch(`http://localhost:3001/api/game/1/universe/${name}/add/${amount}`, {
       method: 'PUT',
     });
     const data = await response.json();
-    console.log(data);
-  }
-  // if (currentScore >= mercuryCost) {
-  //   // currentScore = (currentScore - mercuryCost);
-  //   mercury = (mercury + 1);
-  //   mercuryCost = Math.round(mercuryCost * 1.25);
-  //   mercuryStars.innerHTML = `${mercuryCost} Stars`;
-  //   starsEL.innerHTML = `Stars: ${currentScore}`
-  // };
-};
 
+    storeStars.innerHTML = `${data[planetCost]} Stars`;
+    starsEL.innerHTML =  `Stars: ${data.stars}`;
+  }
+};
 
 scoreOverTime = async () => {
   const response = await fetch(`http://localhost:3001/api/game/1/universe`, {
