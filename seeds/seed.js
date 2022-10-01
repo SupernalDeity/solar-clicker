@@ -1,5 +1,5 @@
 const sequelize = require('../config/connection');
-const { User, Universe, Score } = require('../models');
+const { User, Score } = require('../models');
 
 const userData = require('./userData.json');
 
@@ -11,7 +11,6 @@ const seedDatabase = async () => {
       individualHooks: true,
       returning: true,
     });
-    await Universe.create({ user_id: createdUser.id });
     await Score.create({ user_id: createdUser.id });
   }
 
