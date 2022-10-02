@@ -11,19 +11,20 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({ helpers });
 
-const http = require('http');
-const server = http.createServer(app);
-const { Server } = require('socket.io');
-const io = new Server(server);
-
-io.on('connection', (socket) => {
-  console.log('A user has joined the chat')
-  socket.on('disconnect', () => {
-    console.log('A user has left the chat')
-  });
+const io = require('socket.io')(process.env.PORT || 3000, {
+  cors: {
+    origin: ['http://localhost:3001']
+  }
 });
 
+const gameIo = io.of('/api/game')
 
+gameIo.on('connection', socket => {
+  socket.on('send-message', message => {
+    socket.broadcast.emit('receive-message', message);
+    console.log(message)
+  })
+});
 
 const sess = {
   secret: process.env.SECRET,
@@ -47,5 +48,5 @@ app.use(express.static('public'))
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  server.listen(PORT, () => console.log(`listening at http://localhost:${PORT}`));
+  app.listen(PORT, () => console.log(`listening at http://localhost:${PORT}`));
 });

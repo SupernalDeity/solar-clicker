@@ -9,7 +9,8 @@
     "seed": "node seeds/seed.js",
     "lint": "npx eslint \"**/*.js\"",
     "lint:fix": "npx eslint \"**/*.js\" --fix",
-    "db:sync": "node db/sync"
+    "db:sync": "node db/sync",
+    "type": "/module"
   },
   "keywords": [],
   "author": "",
@@ -25,7 +26,8 @@
     "handlebars-async-helpers": "^1.0.4",
     "mysql2": "^2.3.3",
     "sequelize": "^6.23.2",
-    "socket.io": "^4.5.2"
+    "socket.io": "^4.5.2",
+    "socket.io-client": "^4.5.2"
   },
   "devDependencies": {
     "eslint": "^8.24.0",

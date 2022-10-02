@@ -1,21 +1,21 @@
 const moment = require('moment');
-const User = require('../models/User')
+const username = require('../controllers/api/messageRoutes')
 const users = [];
 
-// const username = User.findOne({where: {name: req.body.name}});
 
 function userJoin() {
-  const user = User.findOne({where: {name: req.body.name}})
+  const user = username;
   users.push(user);
   return user;
 };
 
 function formatMessage(username, text) {
   return {
-    username, 
+    username,
     text,
     time: moment().format('h:mm a')
   };
-}
+};
+
 
 module.exports = { userJoin, formatMessage }
