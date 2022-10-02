@@ -8,7 +8,6 @@ const initialLoad = async () => {
     method: "GET",
   });
   const data = await response.json();
-  console.log(data);
 
   let newArray = Object.keys(data.score)
   for (let i = 3; i < 21 ;  i += 2) {
