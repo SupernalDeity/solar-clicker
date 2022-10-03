@@ -68,7 +68,7 @@ scoreOverTime = async () => {
 // // increases the score every second, 1000ms = 1s
 setInterval(scoreOverTime, 1000);
 
-highScore = () => {
+const highScore = () => {
   window.location = 'http://localhost:3001/api/scores'
 }
 
