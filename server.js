@@ -11,20 +11,6 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({ helpers });
 
-const http = require('http');
-const server = http.createServer(app);
-const { Server } = require('socket.io');
-const io = new Server(server);
-
-io.on('connection', (socket) => {
-  console.log('A user has joined the chat')
-  socket.on('disconnect', () => {
-    console.log('A user has left the chat')
-  });
-});
-
-
-
 const sess = {
   secret: process.env.SECRET,
   cookie: {},
@@ -47,5 +33,5 @@ app.use(express.static('public'))
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  server.listen(PORT, () => console.log(`listening at http://localhost:${PORT}`));
+  app.listen(PORT, () => console.log(`listening at http://localhost:${PORT}`));
 });
