@@ -78,21 +78,21 @@
 }
 
 .li1 {
-  background: -webkit-linear-gradient(magenta, white);
+  background: -webkit-linear-gradient(yellow, magenta);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: xx-large;
 }
 
 .scoreE {
-  background: -webkit-linear-gradient(magenta, white);
+  background: -webkit-linear-gradient(yellow, magenta);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: xx-large;
 }
 
 .qq {
-  background: -webkit-linear-gradient(magenta, white);
+  background: -webkit-linear-gradient(yellow, magenta);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
