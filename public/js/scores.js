@@ -1,6 +1,9 @@
+// adds the scores and users to the scores.handlebars page so it will display on the screen inside of the columns that they belong in
+
 const scoredv = document.getElementById("scoredv");
 const scoredv1 = document.getElementById("scoredv1");
 
+// function to add users and scores
 const initialLoad = async () => {
   const response = await fetch(`http://localhost:3001/api/game/allusers`, {
     method: "GET",
@@ -18,4 +21,6 @@ const initialLoad = async () => {
     scoredv1.appendChild(scoreEl);
   }
 };
+
+// runs the function
 initialLoad();
