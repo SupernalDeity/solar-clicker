@@ -71,7 +71,7 @@ router.put('/universe/', async (req, res) => {
     (universe.neptune * 2000) +
     (universe.pluto * 4000)
     )));
-  
+   
   universe.save();
   return res.json(universe);
 });
