@@ -4,7 +4,7 @@ const starsEL = document.querySelector(".stars");
 const universeEl = document.querySelector("#universe");
 
 const initialLoad = async () => {
-  const response = await fetch(`http://localhost:3001/api/game/1/universe`, {
+  const response = await fetch(`http://localhost:3001/api/game/universe`, {
     method: "GET",
   });
   const data = await response.json();
@@ -21,7 +21,7 @@ const initialLoad = async () => {
 };
 
 const increaseScore = async () => {
-  const response = await fetch(`http://localhost:3001/api/game/1/score`, {
+  const response = await fetch(`http://localhost:3001/api/game/score`, {
     method: "PUT",
   });
   const data = await response.json();
@@ -37,7 +37,7 @@ const purchasePlanet = async (event) => {
     const storeStars = document.querySelector(`.${name}-stars`);
 
     const response = await fetch(
-      `http://localhost:3001/api/game/1/universe/${name}/add/${amount}`,
+      `http://localhost:3001/api/game/universe/${name}/add/${amount}`,
       {
         method: "PUT",
       }
@@ -50,12 +50,12 @@ const purchasePlanet = async (event) => {
 };
 
 scoreOverTime = async () => {
-  const response = await fetch(`http://localhost:3001/api/game/1/universe`, {
+  const response = await fetch(`http://localhost:3001/api/game/universe`, {
     method: "PUT",
   });
   const data = await response.json();
 
-  starsEL.innerHTML = `Stars: ${data.stars}`;
+  if (starsEL) starsEL.innerHTML = `Stars: ${data.stars}`;
 };
 
 // // increases the score every second, 1000ms = 1s

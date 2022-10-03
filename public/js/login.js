@@ -1,3 +1,7 @@
+const loginBtn = document.querySelector('.login');
+const sighUpBtn = document.querySelector('.sign-up');
+const logoutBtn = document.querySelector('.logout');
+
 // function for user login 
 const loginFormHandler = async (event) => {
    event.preventDefault();
@@ -13,7 +17,7 @@ const loginFormHandler = async (event) => {
     });
     
     if (response.ok) {
-     document.location.replace('/api/game');
+     document.location.replace('/');
     } else {
       message('Failed to log in');
     }
@@ -21,48 +25,45 @@ const loginFormHandler = async (event) => {
 
 };
 
-//function to rendser sign-up page
-const signUpPage = (event) => {
-event.preventDefault();
-document.location.replace('/sign-up')
-}
-
 //function for user sign-up
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
-  const username = document.querySelector('#username-signup').value.trim()
+  const name = document.querySelector('#username-signup').value.trim()
   const email = document.querySelector('#sign-up-email').value.trim();
   const password = document.querySelector('#sign-up-password').value.trim();
 
-  if (username && email && password) {
-    const response = await fetch('/api/users/sign-up', {
+  if (name && email && password) {
+    const response = await fetch('/api/users', {
       method: 'POST',
-      body: JSON.stringify({ username, email, password }),
+      body: JSON.stringify({ name, email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
       document.location.replace('/');
     } else {
-      message ('Failed to sign up.');
+      console.log('Failed to sign up.');
     }
   }
 };
 
-document
-  .querySelector('.login')
-  .addEventListener('click', loginFormHandler);
+//function for user sign-up
+const logoutHandler = async (event) => {
+  event.preventDefault();
 
-document
-  .querySelector('.signUpBtn')
-  .addEventListener('click', signUpPage);
+  const response = await fetch('/api/users/logout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+  });
 
-  try{
-    document
-    .querySelector('.sign-up')
-    .addEventListener('click', signupFormHandler);
+  if (response.ok) {
+    document.location.replace('/login');
+  } else {
+    console.log('Failed to logout.');
   }
-  catch (err) {
-    
-  }
+};
+
+if (logoutBtn) logoutBtn.addEventListener('click', logoutHandler);
+if (loginBtn) loginBtn.addEventListener('click', loginFormHandler);
+if (sighUpBtn) sighUpBtn.addEventListener('click', signupFormHandler);
