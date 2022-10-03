@@ -1,6 +1,21 @@
 const router = require('express').Router();
 const { User, Score } = require('../../models');
 
+
+router.get('/allusers', async (req, res) => {
+  const userData = await User.findAll({
+    include: [
+      {
+        model: Score,
+        attributes: {
+          exclude: ['user_id, stars']
+        }
+      },
+  ]
+  })
+  return res.json(userData);
+});
+
 router.get('/universe', async (req, res) => {
   const userData = await User.findByPk(req.session.user_id, {
     include: [
@@ -35,26 +50,26 @@ router.put('/universe/', async (req, res) => {
   const universe = await Score.findOne({ where: { user_id: req.session.user_id }});
   universe.update( universe.stars = (universe.stars + (
     (universe.mercury * 2) + 
-    (universe.venus * 30) + 
-    (universe.earth * 90 ) +
-    (universe.mars * 240) +
-    (universe.jupiter * 500) + 
-    (universe.saturn * 1200) +
-    (universe.uranus * 3000) +
-    (universe.neptune * 7000) +
-    (universe.pluto * 18000)
+    (universe.venus * 10) + 
+    (universe.earth * 30 ) +
+    (universe.mars * 90) +
+    (universe.jupiter * 120) + 
+    (universe.saturn * 500) +
+    (universe.uranus * 900) +
+    (universe.neptune * 2000) +
+    (universe.pluto * 4000)
     )));
 
   universe.update( universe.accumulation = (universe.accumulation + (
     (universe.mercury * 2) + 
-    (universe.venus * 30) + 
-    (universe.earth * 90 ) +
-    (universe.mars * 240) +
-    (universe.jupiter * 500) + 
-    (universe.saturn * 1200) +
-    (universe.uranus * 3000) +
-    (universe.neptune * 7000) +
-    (universe.pluto * 18000)
+    (universe.venus * 10) + 
+    (universe.earth * 30 ) +
+    (universe.mars * 90) +
+    (universe.jupiter * 120) + 
+    (universe.saturn * 500) +
+    (universe.uranus * 900) +
+    (universe.neptune * 2000) +
+    (universe.pluto * 4000)
     )));
   
   universe.save();
