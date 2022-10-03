@@ -11,19 +11,15 @@
       background-image: url(https://time.com/wp-content/uploads/2017/10/229-westerlund-21.jpg?w=2000);
     }
   </style>
-  <div class="dv col-6">
+  <div id="scoredv" class="dv col-6">
       <h2 class="qq text-center text-light">User</h2>
-      <hr  size="8" class="hh text-info">
-  {{#each User}}
-  <p>{{User}}</p>
-  {{/each}}
+      <hr  size="8" class="hh text-info"></hr>
+      
   </div>
-  <div class="dv col-6">
+  <div id="scoredv1" class="dv col-6">
      <h2 class="qq text-center text-light">Score</h2>
      <hr  size="8" class="hh text-info">
-  {{#each Scores}}
-  <p>{{Scores}}</p>
-  {{/each}}
   </div>
 </body>
+<script src="/js/scores.js"></script>
 </html>
