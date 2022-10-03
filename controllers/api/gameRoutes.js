@@ -35,6 +35,36 @@ router.put('/:id/universe/:planet/add/:num?', async (req, res) => {
     };
 });
 
+router.put('/:id/universe/', async (req, res) => {
+  const universe = await Score.findOne({ where: { user_id: req.params.id }});
+  universe.update( universe.stars = (universe.stars + (
+    (universe.mercury * 2) + 
+    (universe.venus * 30) + 
+    (universe.earth * 90 ) +
+    (universe.mars * 240) +
+    (universe.jupiter * 500) + 
+    (universe.saturn * 1200) +
+    (universe.uranus * 3000) +
+    (universe.neptune * 7000) +
+    (universe.pluto * 18000)
+    )));
+
+  universe.update( universe.accumulation = (universe.accumulation + (
+    (universe.mercury * 2) + 
+    (universe.venus * 30) + 
+    (universe.earth * 90 ) +
+    (universe.mars * 240) +
+    (universe.jupiter * 500) + 
+    (universe.saturn * 1200) +
+    (universe.uranus * 3000) +
+    (universe.neptune * 7000) +
+    (universe.pluto * 18000)
+    )));
+  
+  universe.save();
+  return res.json(universe);
+});
+
 router.put('/:id/score/', async (req, res) => {
   const score = await Score.findOne({ where: { user_id: req.params.id }});
   score.update({ stars: (score.stars + 1), accumulation: (score.accumulation + 1), clicks: (score.clicks + 1) });
