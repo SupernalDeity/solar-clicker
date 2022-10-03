@@ -16,7 +16,7 @@ const initialLoad = async () => {
     const storeStars = await document.querySelector(`.${name}-stars`);
     const planetCost = name + "_cost";
 
-    storeStars.innerHTML = `${data.score[planetCost]} Stars`;
+    storeStars.innerHTML = `${data.score[planetCost]}`;
   }
 };
 
@@ -44,7 +44,7 @@ const purchasePlanet = async (event) => {
     );
     const data = await response.json();
 
-    storeStars.innerHTML = `${data[planetCost]} Stars`;
+    storeStars.innerHTML = `${data[planetCost]}`;
     starsEL.innerHTML = `Stars: ${data.stars}`;
   }
 };
