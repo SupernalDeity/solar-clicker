@@ -1,5 +1,6 @@
 const clickerBtn = document.querySelector(".clicker");
 const starsEL = document.querySelector(".stars");
+const highScorePage = document.querySelector(".highScorePage")
 
 const universeEl = document.querySelector("#universe");
 
@@ -61,7 +62,11 @@ scoreOverTime = async () => {
 // // increases the score every second, 1000ms = 1s
 setInterval(scoreOverTime, 1000);
 
-initialLoad();
+highScore = () => {
+  window.location = 'http://localhost:3001/api/scores'
+}
 
+initialLoad();
+highScorePage.addEventListener('click', highScore)
 universeEl.addEventListener("click", purchasePlanet);
 clickerBtn.addEventListener("click", increaseScore);
