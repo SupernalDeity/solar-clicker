@@ -1,12 +1,8 @@
 const router = require('express').Router();
 const { User, Score } = require('../../models');
 
-router.get('/', (req, res) => {
-  res.render('index');
-});
-
-router.get('/:id/universe/', async (req, res) => {
-  const userData = await User.findByPk(req.params.id, {
+router.get('/universe', async (req, res) => {
+  const userData = await User.findByPk(req.session.user_id, {
     include: [
       {
         model: Score,
@@ -20,8 +16,8 @@ router.get('/:id/universe/', async (req, res) => {
   return res.json(user);
 });
 
-router.put('/:id/universe/:planet/add/:num?', async (req, res) => {
-  const universe = await Score.findOne({ where: { user_id: req.params.id }});
+router.put('/universe/:planet/add/:num?', async (req, res) => {
+  const universe = await Score.findOne({ where: { user_id: req.session.user_id }});
   const planetCost = [req.params.planet] + '_cost';
   if (universe.stars >= universe[planetCost]) {
     universe.update({ [req.params.planet]: universe[req.params.planet] + (+req.params.num || 1)});
@@ -35,8 +31,8 @@ router.put('/:id/universe/:planet/add/:num?', async (req, res) => {
     };
 });
 
-router.put('/:id/universe/', async (req, res) => {
-  const universe = await Score.findOne({ where: { user_id: req.params.id }});
+router.put('/universe/', async (req, res) => {
+  const universe = await Score.findOne({ where: { user_id: req.session.user_id }});
   universe.update( universe.stars = (universe.stars + (
     (universe.mercury * 2) + 
     (universe.venus * 30) + 
@@ -65,11 +61,15 @@ router.put('/:id/universe/', async (req, res) => {
   return res.json(universe);
 });
 
-router.put('/:id/score/', async (req, res) => {
-  const score = await Score.findOne({ where: { user_id: req.params.id }});
-  score.update({ stars: (score.stars + 1), accumulation: (score.accumulation + 1), clicks: (score.clicks + 1) });
-  score.save();
-  return res.json(score);
+router.put('/score', async (req, res) => {
+  const score = await Score.findOne({ where: { user_id: req.session.user_id }});
+  if (score) {
+    score.update({ stars: (score.stars + 1), accumulation: (score.accumulation + 1), clicks: (score.clicks + 1) });
+    score.save();
+    return res.json(score);
+  } else {
+    return res.send(404).json({ message: 'not found '});
+  }
 });
 
 module.exports = router;
