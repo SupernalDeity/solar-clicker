@@ -77,6 +77,20 @@
   border: 1px solid magenta;
 }
 
+.li1 {
+  background: -webkit-linear-gradient(magenta, white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: xx-large;
+}
+
+.scoreE {
+  background: -webkit-linear-gradient(magenta, white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: xx-large;
+}
+
 .qq {
   background: -webkit-linear-gradient(magenta, white);
   -webkit-background-clip: text;
