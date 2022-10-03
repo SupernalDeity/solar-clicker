@@ -18,8 +18,6 @@ const initialLoad = async () => {
     const storeCount = await document.querySelector(`.has${name}`);
     const planetCost = name + "_cost";
 
-    console.log(`${data.score[name]}`);
-
     storeStars.innerHTML = `${data.score[planetCost]}`;
     storeCount.innerHTML = `${data.score[name]}`;
   }
@@ -68,9 +66,33 @@ scoreOverTime = async () => {
 // // increases the score every second, 1000ms = 1s
 setInterval(scoreOverTime, 1000);
 
+let lastHovered;
 const highScore = () => {
   window.location = 'http://localhost:3001/api/scores'
 }
+function displayTxt(evt) {
+  // evt.currentTarget.querySelector( '.innerText' ).classList.remove( 'hide' );
+  if(evt.target.type === "submit"){
+    lastHovered = evt.target.parentElement.children[3]
+    lastHovered.classList.remove('hide')
+  }
+}
+// if leave -> hide txt
+function removeTxt(evt) {
+  if(lastHovered){
+    lastHovered.classList.add('hide');
+    lastHovered = undefined
+  }
+    
+  }
+  // evt.currentTarget.querySelector( '.innerText' ).classList.add( 'hide' );
+
+
+/* mouseover and mouseout events to `.wrapper` element */
+
+var wrappers = document.querySelector( '#universe' );
+wrappers.addEventListener( 'mouseover', displayTxt );
+wrappers.addEventListener( 'mouseout', removeTxt );
 
 initialLoad();
 highScorePage.addEventListener('click', highScore)
