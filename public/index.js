@@ -14,9 +14,13 @@ const initialLoad = async () => {
     let name = newArray[i];
 
     const storeStars = await document.querySelector(`.${name}-stars`);
+    const storeCount = await document.querySelector(`.has${name}`);
     const planetCost = name + "_cost";
 
+    console.log(`${data.score[name]}`);
+
     storeStars.innerHTML = `${data.score[planetCost]}`;
+    storeCount.innerHTML = `${data.score[name]}`;
   }
 };
 
@@ -35,6 +39,7 @@ const purchasePlanet = async (event) => {
     const amount = event.target.dataset.amount;
     const planetCost = name + "_cost";
     const storeStars = document.querySelector(`.${name}-stars`);
+    const storeCount = document.querySelector(`.has${name}`);
 
     const response = await fetch(
       `http://localhost:3001/api/game/universe/${name}/add/${amount}`,
@@ -46,6 +51,7 @@ const purchasePlanet = async (event) => {
 
     storeStars.innerHTML = `${data[planetCost]}`;
     starsEL.innerHTML = `Stars: ${data.stars}`;
+    storeCount.innerHTML = `${data[name]}`;
   }
 };
 

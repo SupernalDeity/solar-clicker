@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { User, Score } = require('../../models');
 
-
 router.get('/allusers', async (req, res) => {
   const userData = await User.findAll({
     include: [
