@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { User, Score, Message } = require('../../models');
 
+
+//Get all users
 router.get('/allusers', async (req, res) => {
   const userData = await User.findAll({
     include: [
@@ -15,6 +17,7 @@ router.get('/allusers', async (req, res) => {
   return res.json(userData);
 });
 
+//Get a user by id 
 router.get('/universe', async (req, res) => {
   const userData = await User.findByPk(req.session.user_id, {
     include: [
@@ -30,6 +33,7 @@ router.get('/universe', async (req, res) => {
   return res.json(user);
 });
 
+//Add a planet to a user and update database values
 router.put('/universe/:planet/add/:num?', async (req, res) => {
   const universe = await Score.findOne({ where: { user_id: req.session.user_id }});
   const planetCost = [req.params.planet] + '_cost';
@@ -45,6 +49,7 @@ router.put('/universe/:planet/add/:num?', async (req, res) => {
     };
 });
 
+//Updates score based on database values
 router.put('/universe/', async (req, res) => {
   const universe = await Score.findOne({ where: { user_id: req.session.user_id }});
   universe.update( universe.stars = (universe.stars + (
@@ -75,6 +80,7 @@ router.put('/universe/', async (req, res) => {
   return res.json(universe);
 });
 
+//Updates values based on user click
 router.put('/score', async (req, res) => {
   const score = await Score.findOne({ where: { user_id: req.session.user_id }});
   if (score) {
@@ -86,13 +92,11 @@ router.put('/score', async (req, res) => {
   }
 });
 
+//Route to save a message to Database
 router.post('/message', async (req, res) => {
   try {
-    const messageData = await Message.create(req.body);
-    messageData.update({
-      username: messageData.username, message: messageData.message
-    });
-    messageData.save();
+    const messageData = await Message.create({ ...req.body, user_id: req.session.user_id });
+ 
     return res.json(messageData);
 
   } catch (err) {
@@ -101,8 +105,11 @@ router.post('/message', async (req, res) => {
   }
 });
 
+//Route to get all messages in Database
 router.get('/message', async (req, res) => {
-  const messageData = await Message.findAll({ })
+  const messageData = await Message.findAll({ 
+    include: [User]
+    })
   return res.json(messageData);
 });
 

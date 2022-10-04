@@ -11,9 +11,6 @@ Message.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    username: {
-      type: DataTypes.STRING,
-    },
     message: {
       type: DataTypes.STRING,
     },
