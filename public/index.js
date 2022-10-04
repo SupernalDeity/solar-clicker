@@ -4,6 +4,7 @@ const highScorePage = document.querySelector(".highScorePage")
 
 const universeEl = document.querySelector("#universe");
 
+// updates the prices of the planets on inital load based on database values
 const initialLoad = async () => {
   const response = await fetch(`http://localhost:3001/api/game/universe`, {
     method: "GET",
@@ -23,6 +24,7 @@ const initialLoad = async () => {
   }
 };
 
+//increases the score in the database each time a person clicks and updates the value on the screen
 const increaseScore = async () => {
   const response = await fetch(`http://localhost:3001/api/game/score`, {
     method: "PUT",
@@ -32,6 +34,7 @@ const increaseScore = async () => {
   starsEL.innerHTML = `Stars: ${data.stars}`;
 };
 
+// updates the planets a user owns in the database and updates the count on the screen
 const purchasePlanet = async (event) => {
   if (event.target.matches("button")) {
     const name = event.target.dataset.name;
@@ -54,6 +57,8 @@ const purchasePlanet = async (event) => {
   }
 };
 
+
+//increases the score in the database every time its called based on planets owned
 scoreOverTime = async () => {
   const response = await fetch(`http://localhost:3001/api/game/universe`, {
     method: "PUT",
@@ -94,7 +99,8 @@ var wrappers = document.querySelector( '#universe' );
 wrappers.addEventListener( 'mouseover', displayTxt );
 wrappers.addEventListener( 'mouseout', removeTxt );
 
-initialLoad();
 highScorePage.addEventListener('click', highScore)
 universeEl.addEventListener("click", purchasePlanet);
 clickerBtn.addEventListener("click", increaseScore);
+
+initialLoad();
