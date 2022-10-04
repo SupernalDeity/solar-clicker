@@ -5,7 +5,7 @@ const universeEl = document.querySelector("#universe");
 
 // updates the prices of the planets on inital load based on database values
 const initialLoad = async () => {
-  const response = await fetch(`http://localhost:3001/api/game/universe`, {
+  const response = await fetch(`/api/game/universe`, {
     method: "GET",
   });
   const data = await response.json();
@@ -25,7 +25,7 @@ const initialLoad = async () => {
 
 //increases the score in the database each time a person clicks and updates the value on the screen
 const increaseScore = async () => {
-  const response = await fetch(`http://localhost:3001/api/game/score`, {
+  const response = await fetch(`/api/game/score`, {
     method: "PUT",
   });
   const data = await response.json();
@@ -43,7 +43,7 @@ const purchasePlanet = async (event) => {
     const storeCount = document.querySelector(`.has${name}`);
 
     const response = await fetch(
-      `http://localhost:3001/api/game/universe/${name}/add/${amount}`,
+      `/api/game/universe/${name}/add/${amount}`,
       {
         method: "PUT",
       }
@@ -58,7 +58,7 @@ const purchasePlanet = async (event) => {
 
 //increases the score in the database every time its called based on planets owned
 scoreOverTime = async () => {
-  const response = await fetch(`http://localhost:3001/api/game/universe`, {
+  const response = await fetch(`/api/game/universe`, {
     method: "PUT",
   });
   const data = await response.json();
@@ -71,7 +71,7 @@ setInterval(scoreOverTime, 1000);
 
 let lastHovered;
 const highScore = () => {
-  window.location = 'http://localhost:3001/api/scores'
+  window.location = '/api/scores'
 }
 
 function displayTxt(evt) {
