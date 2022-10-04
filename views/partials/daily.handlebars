@@ -1,0 +1,50 @@
+<section class="card">
+  <header>
+    <h4 class="text-center top">Your daily reward will be available at 12pm</h4>
+  </header>
+  <div class="daily-reward">
+    <div class="now"></div>
+    <div class="star-image"></div>
+    <div class="submit">
+      <button class="get-reward btn btn-primary">Claim Reward!</button>
+    </div>
+    <div class="today-reward"></div>
+  </div>
+
+  <script type="/module" src="/js/daily.js"></script>
+  <style>
+    .top {
+      position: relative;
+      color: black;
+      font-size: large;
+    }
+
+    .star-image {
+      background:url('assets/star.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 250px;
+    }
+
+    .submit {
+      text-align: center;
+    }
+
+    .btn-primary {
+      position: relative;
+      text-align: center;
+    }
+
+    .card {
+      height: 400px;
+      width: 200px;
+    }
+
+    .moment {
+      position: absolute;
+      bottom: 3px;
+      left: 3px;
+    }
+  </style>
+</section>
