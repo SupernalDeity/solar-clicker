@@ -1,7 +1,6 @@
 const clickerBtn = document.querySelector(".clicker");
 const starsEL = document.querySelector(".stars");
 const highScorePage = document.querySelector(".highScorePage")
-
 const universeEl = document.querySelector("#universe");
 
 // updates the prices of the planets on inital load based on database values
@@ -57,7 +56,6 @@ const purchasePlanet = async (event) => {
   }
 };
 
-
 //increases the score in the database every time its called based on planets owned
 scoreOverTime = async () => {
   const response = await fetch(`http://localhost:3001/api/game/universe`, {
@@ -75,6 +73,7 @@ let lastHovered;
 const highScore = () => {
   window.location = 'http://localhost:3001/api/scores'
 }
+
 function displayTxt(evt) {
   // evt.currentTarget.querySelector( '.innerText' ).classList.remove( 'hide' );
   if(evt.target.type === "submit"){
@@ -82,19 +81,16 @@ function displayTxt(evt) {
     lastHovered.classList.remove('hide')
   }
 }
+
 // if leave -> hide txt
 function removeTxt(evt) {
   if(lastHovered){
     lastHovered.classList.add('hide');
     lastHovered = undefined
   }
-    
   }
-  // evt.currentTarget.querySelector( '.innerText' ).classList.add( 'hide' );
-
 
 /* mouseover and mouseout events to `.wrapper` element */
-
 var wrappers = document.querySelector( '#universe' );
 wrappers.addEventListener( 'mouseover', displayTxt );
 wrappers.addEventListener( 'mouseout', removeTxt );

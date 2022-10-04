@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Score } = require('../../models');
+const { User, Score, Message } = require('../../models');
 
 router.get('/allusers', async (req, res) => {
   const userData = await User.findAll({
@@ -84,6 +84,26 @@ router.put('/score', async (req, res) => {
   } else {
     return res.send(404).json({ message: 'not found '});
   }
+});
+
+router.post('/message', async (req, res) => {
+  try {
+    const messageData = await Message.create(req.body);
+    messageData.update({
+      username: messageData.username, message: messageData.message
+    });
+    messageData.save();
+    return res.json(messageData);
+
+  } catch (err) {
+    console.log(err);
+    res.status(400).json(err);
+  }
+});
+
+router.get('/message', async (req, res) => {
+  const messageData = await Message.findAll({ })
+  return res.json(messageData);
 });
 
 module.exports = router;
