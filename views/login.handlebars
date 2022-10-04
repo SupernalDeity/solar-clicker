@@ -1,6 +1,6 @@
-<section class=" container ">
+<section class=" container mt-p login-wrap p-0">
     <h2 class="text-light">Login</h2>
-    <form class="text-light bg-dark r p-3 m-5" action="submit" class="login">
+    <form class="text-light bg-dark r p-3 m-5 " action="submit" class="login">
         <div>
             <div class="form-struc">
                 <label for="email-login sign-up-login" class="col-sm-2 me-4 col-form-label">Email:</label>
@@ -8,7 +8,7 @@
             </div>
             <div class="form-struc">
                 <label for="password-login" class="col-sm-2 me-5 col-form-label">Password:</label>
-                <input class="form-input" id="login-password" type="password">
+                <input class="form-input" id="login-password" type="text">
             </div>
         </div>
         <div>
@@ -17,8 +17,8 @@
                 </button>
 
             </div>
-            <div>
-                <a class="btn btn-primary signUpBtn mt-2 d-inline-flex p-2" href="/sign-up">Sign Up</a>
+            <div claas="col-sm-10">
+                <a class="btn btn-primary signUpBtn " href="/sign-up">Sign Up</a>
             </div>
         </div>
     </form>
@@ -41,20 +41,13 @@
         padding-bottom: 40px;
         background-color: #f5f5f5;
         justify-content: space-between;
+        justify-content: center;
+        margin-top: 10px;
     }
 
      form > div {
         display: flex;
     }
-
-
-    form {
-    display: block;
-    margin-top: 0em;
-}
-
-
-
 </style>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
