@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { User, Score } = require('../../models');
 
+
+//route to create a user for sign-up
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -18,6 +20,8 @@ router.post('/', async (req, res) => {
   }
 });
 
+
+//route to login the game 
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -50,6 +54,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// route to logout of the game
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
