@@ -113,4 +113,15 @@ router.get('/message', async (req, res) => {
   return res.json(messageData);
 });
 
+router.put('/score', async (req, res) => {
+  const score = await Score.findOne({ where: { user_id: req.session.user_id } });
+  if (score) {
+    score.update({ stars: (score.stars + reward), accumulation: (score.accumulation + reward) });
+    score.save();
+    return res.json(score);
+  } else {
+    return res.send(404).json({ message: 'Reward not given' });
+  }
+});
+
 module.exports = router;
