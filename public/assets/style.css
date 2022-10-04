@@ -38,15 +38,16 @@
   font-family: Garamond, "Times New Roman", serif;
 }
 
-.chat-form-container {
-  height: 400px;
-  width: 50px;
+.chat-messages {
+  max-height: 400px;
+  width: 100%;
+  overflow-y: scroll;
 }
 
 #chat-form {
-  position: absolute;
-  bottom: 3px;
-  left: 3px;
+  margin:8px;
+  margin-right: 4px;
+  display: flex;
 }
 
 .btn-primary {
@@ -61,7 +62,7 @@
 }
 
 .dv {
-  background: rgba(100, 100, 100, 0.5);
+  background: rgba(4, 4, 4, 0.5);
   height: 800px;
   width: 400px;
   border: 8px solid;
@@ -78,21 +79,21 @@
 }
 
 .li1 {
-  background: -webkit-linear-gradient(magenta, white);
+  background: -webkit-linear-gradient(yellow, magenta);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: xx-large;
 }
 
 .scoreE {
-  background: -webkit-linear-gradient(magenta, white);
+  background: -webkit-linear-gradient(yellow, magenta);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: xx-large;
 }
 
 .qq {
-  background: -webkit-linear-gradient(magenta, white);
+  background: -webkit-linear-gradient(yellow, magenta);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
