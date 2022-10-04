@@ -5,7 +5,7 @@ const messageBtn = document.querySelector('.messageBtn');
 
 // Loads all messages on intial page load
 const messageinitialLoad = async () => {
-  const response = await fetch(`http://localhost:3001/api/game/message`, {
+  const response = await fetch(`/api/game/message`, {
     method: "GET",
   });
   const data = await response.json();
@@ -27,7 +27,7 @@ const postMessage = async () => {
   
   console.log(message);
 
-  const response = await fetch(`http://localhost:3001/api/game/message`, {
+  const response = await fetch(`/api/game/message`, {
     method: "POST",
     body: JSON.stringify({ message }),
     headers: { 'Content-Type': 'application/json'},

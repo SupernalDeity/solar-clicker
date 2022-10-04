@@ -5,7 +5,7 @@ const scoredv1 = document.getElementById("scoredv1");
 
 // function to add users and scores
 const initialLoad = async () => {
-  const response = await fetch(`http://localhost:3001/api/game/allusers`, {
+  const response = await fetch(`/api/game/allusers`, {
     method: "GET",
   });
   const data = await response.json();

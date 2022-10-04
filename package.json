@@ -24,6 +24,8 @@
     "handlebars": "^4.7.7",
     "handlebars-async-helpers": "^1.0.4",
     "mysql2": "^2.3.3",
+    "node-schedule": "^2.1.0",
+    "random-number": "^0.0.9",
     "sequelize": "^6.23.2"
   },
   "devDependencies": {
